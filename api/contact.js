@@ -26,7 +26,8 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
       },
       body: JSON.stringify({
         access_key: accessKey,
@@ -38,7 +39,18 @@ export default async function handler(req, res) {
       })
     });
 
-    const data = await response.json();
+    const responseText = await response.text();
+    let data;
+    try {
+      data = JSON.parse(responseText);
+    } catch (parseError) {
+      console.error('Failed to parse Web3Forms response as JSON. Status:', response.status);
+      console.error('Response body:', responseText);
+      return res.status(502).json({
+        success: false,
+        message: `Web3Forms server returned an invalid response (HTML/Text instead of JSON). Status: ${response.status}. Please check Vercel logs for details.`
+      });
+    }
 
     if (response.ok && data.success) {
       return res.status(200).json({ success: true, message: 'Message sent successfully!' });
