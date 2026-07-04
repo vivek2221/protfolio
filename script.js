@@ -80,11 +80,19 @@ window.addEventListener('scroll', () => {
 // Contact Form Handling with visual success feedback
 const contactForm = document.getElementById('portfolio-contact-form');
 const contactFormContainer = document.getElementById('contact-form-container');
+const submitButton = document.getElementById('btn-submit-form');
+const errorMsgContainer = document.getElementById('form-error-msg');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        // Hide previous errors
+        if (errorMsgContainer) {
+            errorMsgContainer.style.display = 'none';
+            errorMsgContainer.innerHTML = '';
+        }
+
         // Extract form details
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
@@ -92,35 +100,88 @@ if (contactForm) {
 
         // Perform basic verification
         if (!name || !email || !message) {
-            alert('Please fill out all fields.');
+            if (errorMsgContainer) {
+                errorMsgContainer.style.display = 'flex';
+                errorMsgContainer.innerHTML = `
+                    <i data-lucide="alert-circle" style="width: 18px; height: 18px; flex-shrink: 0; color: var(--color-danger);"></i>
+                    <span>Please fill out all fields.</span>
+                `;
+                lucide.createIcons();
+            } else {
+                alert('Please fill out all fields.');
+            }
             return;
         }
 
-        // Show a premium glass success feedback card
-        contactFormContainer.style.opacity = '0';
-        setTimeout(() => {
-            contactFormContainer.innerHTML = `
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; gap: 20px;">
-                    <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); border: 2px solid var(--color-success); display: flex; align-items: center; justify-content: center; color: var(--color-success);">
-                        <i data-lucide="check" style="width: 32px; height: 32px;"></i>
-                    </div>
-                    <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-main);">Message Sent!</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; max-width: 300px;">
-                        Thank you, <strong>${name}</strong>. Your message was sent successfully. Vivek will get back to you at <strong>${email}</strong> soon.
-                    </p>
-                    <button id="btn-form-reset" class="btn btn-secondary" style="margin-top: 10px; font-size: 0.9rem; padding: 10px 20px;">
-                        Send Another Message
-                    </button>
-                </div>
-            `;
-            lucide.createIcons(); // Initialize the check icon
-            contactFormContainer.style.opacity = '1';
-            
-            // Add listener to reset button
-            document.getElementById('btn-form-reset').addEventListener('click', () => {
-                location.reload(); // Quick reset
+        // Disable submit button and show loading state
+        const originalButtonContent = submitButton.innerHTML;
+        submitButton.disabled = true;
+        submitButton.innerHTML = `
+            Sending...
+            <svg class="spinner" viewBox="0 0 50 50" style="width: 18px; height: 18px; animation: spin 1s linear infinite; margin-left: 5px;">
+                <circle class="path" cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" style="stroke-dasharray: 1, 150; stroke-dashoffset: 0; animation: dash 1.5s ease-in-out infinite;"></circle>
+            </svg>
+        `;
+
+        try {
+            // Send the request to our Vercel Serverless Function
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ name, email, message })
             });
-        }, 300);
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                // Show a premium glass success feedback card
+                contactFormContainer.style.opacity = '0';
+                setTimeout(() => {
+                    contactFormContainer.innerHTML = `
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; gap: 20px;">
+                            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); border: 2px solid var(--color-success); display: flex; align-items: center; justify-content: center; color: var(--color-success);">
+                                <i data-lucide="check" style="width: 32px; height: 32px;"></i>
+                            </div>
+                            <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-main);">Message Sent!</h3>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; max-width: 300px;">
+                                Thank you, <strong>${name}</strong>. Your message was sent successfully. Vivek will get back to you at <strong>${email}</strong> soon.
+                            </p>
+                            <button id="btn-form-reset" class="btn btn-secondary" style="margin-top: 10px; font-size: 0.9rem; padding: 10px 20px;">
+                                Send Another Message
+                            </button>
+                        </div>
+                    `;
+                    lucide.createIcons(); // Initialize the check icon
+                    contactFormContainer.style.opacity = '1';
+                    
+                    // Add listener to reset button
+                    document.getElementById('btn-form-reset').addEventListener('click', () => {
+                        location.reload(); // Quick reset
+                    });
+                }, 300);
+            } else {
+                throw new Error(data.message || 'Something went wrong. Please try again later.');
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+            // Re-enable form and show error
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalButtonContent;
+
+            if (errorMsgContainer) {
+                errorMsgContainer.style.display = 'flex';
+                errorMsgContainer.innerHTML = `
+                    <i data-lucide="alert-circle" style="width: 18px; height: 18px; flex-shrink: 0; color: var(--color-danger);"></i>
+                    <span>${error.message}</span>
+                `;
+                lucide.createIcons();
+            } else {
+                alert(error.message);
+            }
+        }
     });
 }
 
