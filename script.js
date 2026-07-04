@@ -124,14 +124,25 @@ if (contactForm) {
         `;
 
         try {
-            // Send the request to our Vercel Serverless Function
-            const response = await fetch('/api/contact', {
+            // Read the access key directly from the hidden input field in index.html
+            const accessKeyElement = document.querySelector('input[name="access_key"]');
+            const accessKey = accessKeyElement ? accessKeyElement.value : '';
+
+            // Send the request directly to Web3Forms API
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify({ name, email, message })
+                body: JSON.stringify({
+                    access_key: accessKey,
+                    name: name,
+                    email: email,
+                    message: message,
+                    from_name: 'Vivek Portfolio Contact Form',
+                    subject: `New Message from ${name} via Portfolio`
+                })
             });
 
             const data = await response.json();
