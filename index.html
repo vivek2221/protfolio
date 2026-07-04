@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Vivek Shekhawat - Full Stack Engineer specializing in scalable web ecosystems, real-time systems, and AI integrations.">
+    <meta name="keywords" content="Vivek Shekhawat, Full Stack Engineer, Web Developer Portfolio, React, Node.js, Express, MongoDB, WebSockets, Redis, AWS">
+    <meta name="author" content="Vivek Shekhawat">
+    <meta property="og:title" content="Vivek Shekhawat | Full Stack Engineer">
+    <meta property="og:description" content="Portfolio of Vivek Shekhawat - Full Stack Engineer specializing in engineering scalable web ecosystems.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.vivekss.in">
+    <title>Vivek Shekhawat | Full Stack Engineer</title>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Floating Navigation Bar -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#hero" class="logo" id="nav-logo">
+                <span id="sizeLogo">V i v e k</span>
+            </a>
+            
+            <button class="menu-btn" id="menu-toggle" aria-label="Toggle Navigation Menu">
+                <i data-lucide="menu"></i>
+            </button>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero" class="active" id="link-hero">Home</a></li>
+                <li><a href="#about" id="link-about">About</a></li>
+                <li><a href="#skills" id="link-skills">Skills</a></li>
+                <li><a href="#projects" id="link-projects">Projects</a></li>
+                <li><a href="#education" id="link-education">Education</a></li>
+                <li><a href="#contact" id="link-contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="grid-bg"></div>
+            <div class="hero-content">
+                <div class="hero-tag" id="hero-role-tag">
+                    <i data-lucide="code-2" style="width:16px;height:16px;"></i>
+                    Full Stack Engineer
+                </div>
+                <h1 class="hero-title" id="hero-name-heading">
+                    Hi, I'm <span>Vivek Shekhawat</span>
+                </h1>
+                <p class="hero-description" id="hero-summary-para">
+                    Data Structures & Algorithms enthusiast and developer specialized in engineering scalable web ecosystems, real-time communication systems, and cloud deployments. Adept at building robust system architectures and optimizing complex backend logic.
+                </p>
+                
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary" id="btn-hero-projects">
+                        View Projects
+                        <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary" id="btn-hero-contact">
+                        Get in Touch
+                        <i data-lucide="mail" style="width:18px;height:18px;"></i>
+                    </a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/vivek2221" target="_blank" rel="noopener noreferrer" class="social-icon" id="hero-social-github" title="GitHub">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/vivek-shekhawat-446762245/" target="_blank" rel="noopener noreferrer" class="social-icon" id="hero-social-linkedin" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="mailto:vshekawat136@gmail.com" class="social-icon" id="hero-social-email" title="Email">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Stats Section -->
+        <section id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">About Me</span>
+                    <h2 class="section-title">Bridging Performance and Architecture</h2>
+                </div>
+                
+                <div class="glass-card" style="margin-bottom: 40px;" id="about-card-summary">
+                    <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.8;">
+                        I am dedicated to crafting highly responsive, robust, and secure web applications. Combining a strong analytical foundation from solving complex algorithmic challenges with practical full-stack expertise, I optimize backend response latency, design secure database schemas, and establish smooth live communication pipelines. I approach software engineering with a focus on optimization, reliability, and security at every tier.
+                    </p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="glass-card stat-item" id="stat-leetcode">
+                        <span class="stat-val">250+</span>
+                        <span class="stat-title">DSA Problems Solved</span>
+                        <span class="stat-desc">Strong foundation in algorithms and analytical problem solving on LeetCode.</span>
+                    </div>
+                    <div class="glass-card stat-item" id="stat-latency">
+                        <span class="stat-val">30%</span>
+                        <span class="stat-title">Latency Optimization</span>
+                        <span class="stat-desc">Reduced API endpoint response latency using Redis-backed caching.</span>
+                    </div>
+                    <div class="glass-card stat-item" id="stat-realtime">
+                        <span class="stat-val">Real-time</span>
+                        <span class="stat-title">Synchronization</span>
+                        <span class="stat-desc">Designed high-throughput Express and WebSockets pipelines.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Expertise</span>
+                    <h2 class="section-title">Technical Skills</h2>
+                </div>
+                
+                <div class="skills-grid">
+                    <!-- Languages -->
+                    <div class="glass-card skill-category" id="skills-languages">
+                        <div class="skill-category-header">
+                            <i data-lucide="terminal"></i>
+                            <h3>Languages</h3>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">C++</span>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">HTML5</span>
+                            <span class="skill-badge">CSS3</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Frontend -->
+                    <div class="glass-card skill-category" id="skills-frontend">
+                        <div class="skill-category-header">
+                            <i data-lucide="layout"></i>
+                            <h3>Frontend Development</h3>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-badge">React.js</span>
+                            <span class="skill-badge">React Router</span>
+                            <span class="skill-badge">Context API</span>
+                            <span class="skill-badge">Vite</span>
+                            <span class="skill-badge">GSAP</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Backend -->
+                    <div class="glass-card skill-category" id="skills-backend">
+                        <div class="skill-category-header">
+                            <i data-lucide="server"></i>
+                            <h3>Backend Development</h3>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-badge">Node.js</span>
+                            <span class="skill-badge">Express.js</span>
+                            <span class="skill-badge">REST API Design</span>
+                            <span class="skill-badge">WebSockets</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Databases -->
+                    <div class="glass-card skill-category" id="skills-databases">
+                        <div class="skill-category-header">
+                            <i data-lucide="database"></i>
+                            <h3>Databases & Caching</h3>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-badge">MongoDB</span>
+                            <span class="skill-badge">Mongoose ORM</span>
+                            <span class="skill-badge">Redis (Sessions & Cache)</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Cloud & DevOps -->
+                    <div class="glass-card skill-category" id="skills-devops">
+                        <div class="skill-category-header">
+                            <i data-lucide="cloud"></i>
+                            <h3>Cloud & DevOps</h3>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-badge">AWS S3</span>
+                            <span class="skill-badge">AWS EC2</span>
+                            <span class="skill-badge">Nginx</span>
+                            <span class="skill-badge">PM2</span>
+                            <span class="skill-badge">GitHub Actions (CI/CD)</span>
+                            <span class="skill-badge">Hostinger</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Security -->
+                    <div class="glass-card skill-category" id="skills-security">
+                        <div class="skill-category-header">
+                            <i data-lucide="shield-check"></i>
+                            <h3>Security & Auth</h3>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-badge">OAuth 2.0</span>
+                            <span class="skill-badge">OTP Authentication</span>
+                            <span class="skill-badge">RBAC Controls</span>
+                            <span class="skill-badge">Zod Validation</span>
+                        </div>
+                    </div>
+
+                    <!-- Developer Tools -->
+                    <div class="glass-card skill-category" id="skills-tools">
+                        <div class="skill-category-header">
+                            <i data-lucide="wrench"></i>
+                            <h3>Developer Tools</h3>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-badge">Git</span>
+                            <span class="skill-badge">GitHub</span>
+                            <span class="skill-badge">Postman</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Showcase</span>
+                    <h2 class="section-title">Technical Projects</h2>
+                </div>
+                
+                <div class="projects-list">
+                    <!-- Project 1: cloudStore -->
+                    <div class="glass-card project-card" id="project-cloudstore">
+                        <div class="project-details">
+                            <div class="project-tech">
+                                <span class="tech-tag">React.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Redis</span>
+                                <span class="tech-tag">AWS (S3)</span>
+                                <span class="tech-tag">AWS (EC2)</span>
+                                <span class="tech-tag">Nginx</span>
+                                <span class="tech-tag">PM2</span>
+                                <span class="tech-tag">Git Actions(CI/CD)</span>
+                            </div>
+                            <h3 class="project-title">cloudStore</h3>
+                            <p class="project-description">
+                                A highly secure, production-grade cloud-storage web application offering structured client-server data storage with high reliability, scalable sessions, and strict access control guidelines.
+                            </p>
+                            <ul class="project-bullets">
+                                <li>Engineered secure cloud storage featuring Role-Based Access Control (RBAC) via dedicated, permission-locked Admin and Super Admin dashboards.</li>
+                                <li>Integrated AWS S3 for reliable asset storage and scaled session handling with Redis-backed caching, reducing API endpoint latency by 30%.</li>
+                                <li>Mitigated brute-force vulnerabilities and unauthorized access by implementing request rate limiting, OTP authentication, and Google OAuth workflow integrations.</li>
+                            </ul>
+                            <div class="project-highlights">
+                                <span class="highlight-badge">
+                                    <i data-lucide="zap"></i>
+                                    -30% API Latency
+                                </span>
+                                <span class="highlight-badge">
+                                    <i data-lucide="shield"></i>
+                                    RBAC Guarded
+                                </span>
+                            </div>
+                        </div>
+                        <div class="project-visual">
+                            <div class="cloud-visual-bg" id="cloudStore_frontend"></div>
+                            <div class="cloud-display-inner">
+                                <div class="visual-icon-wrap">
+                                    <i data-lucide="cloud-lightning"></i>
+                                </div>
+                                <div class="visual-title">cloudStore Server</div>
+                                <div class="visual-subtitle">AWS S3 Asset Bucket</div>
+                                <div class="visual-stats-bar">
+                                    <div class="visual-stat">
+                                        <span class="v-stat-val">30%</span>
+                                        <span class="v-stat-lbl">Faster</span>
+                                    </div>
+                                    <div class="visual-stat" style="border-left: 1px solid var(--border-color); padding-left: 20px;">
+                                        <span class="v-stat-val">Redis</span>
+                                        <span class="v-stat-lbl">Cached</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2: Viver -->
+                    <div class="glass-card project-card viver-card" id="project-viver">
+                        <div class="project-details">
+                            <div class="project-tech">
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">WebSockets</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">React 19</span>
+                                <span class="tech-tag">GSAP</span>
+                            </div>
+                            <h3 class="project-title">Viver</h3>
+                            <p class="project-description">
+                                A high-throughput real-time communication platform designed to manage live instant messaging, concurrency rules, and secure user states under intensive traffic.
+                            </p>
+                            <ul class="project-bullets">
+                                <li>Architected a high-throughput Express & WebSockets data pipeline to process real-time instant messaging, live relationship requests, and instant data synchronization.</li>
+                                <li>Developed a specialized concurrent re-Login engine forcing active session termination to guarantee single-device account integrity.</li>
+                                <li>Enforced rigid backend security policies utilizing signed httpOnly cookies, dual-method authentication, and server-side Zod schema validation.</li>
+                                <li>Optimized database performance and automated storage cleanup by implementing Mongoose TTL indexes to automatically expire transient session data.</li>
+                            </ul>
+                            <div class="project-highlights">
+                                <span class="highlight-badge" style="background: rgba(6, 182, 212, 0.06); border-color: rgba(6, 182, 212, 0.15); color: #22d3ee;">
+                                    <i data-lucide="message-square"></i>
+                                    WebSockets sync
+                                </span>
+                                <span class="highlight-badge" style="background: rgba(168, 85, 247, 0.06); border-color: rgba(168, 85, 247, 0.15); color: #c084fc;">
+                                    <i data-lucide="user-check"></i>
+                                    Single-Device Integrity
+                                </span>
+                            </div>
+                        </div>
+                        <div class="project-visual">
+                            <div class="cloud-visual-bg" style="background: radial-gradient(circle at 30% 70%, rgba(6, 182, 212, 0.12), transparent 60%);"></div>
+                            <div class="viver-display-inner">
+                                <div class="visual-icon-wrap">
+                                    <i data-lucide="message-square"></i>
+                                </div>
+                                <div class="visual-title">Viver Engine</div>
+                                <div class="visual-subtitle">Real-time WebSockets Sync</div>
+                                <div class="visual-stats-bar">
+                                    <div class="visual-stat">
+                                        <span class="v-stat-val">Active</span>
+                                        <span class="v-stat-lbl">1-Device Only</span>
+                                    </div>
+                                    <div class="visual-stat" style="border-left: 1px solid var(--border-color); padding-left: 20px;">
+                                        <span class="v-stat-val">TTL</span>
+                                        <span class="v-stat-lbl">Auto-purge</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Timeline</span>
+                    <h2 class="section-title">Education</h2>
+                </div>
+                
+                <div class="timeline">
+                    <!-- College -->
+                    <div class="timeline-item" id="edu-college">
+                        <div class="timeline-marker"></div>
+                        <span class="timeline-date">2022 — 2026 (Expected)</span>
+                        <div class="glass-card timeline-card">
+                            <h3 class="timeline-title">B.Tech in Computer Science & Engineering</h3>
+                            <p class="timeline-subtitle">Vivekananda Global University — Jaipur, India</p>
+                            <p class="timeline-details">Specializing in system design, core computer science subjects, database systems, and software engineering methodologies.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- School -->
+                    <div class="timeline-item" id="edu-school">
+                        <div class="timeline-marker"></div>
+                        <span class="timeline-date">Completed in 2022</span>
+                        <div class="glass-card timeline-card">
+                            <h3 class="timeline-title">Higher Secondary Education</h3>
+                            <p class="timeline-subtitle">Army Public School — India</p>
+                            <p class="timeline-details">Focused on Science and Mathematics, laying the groundwork for engineering analytical reasoning skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" style="padding-top: 50px; padding-bottom: 50px;">
+            <div class="container">
+                <div class="glass-card achievement-card" id="achievement-leetcode-card">
+                    <div class="achievement-icon">
+                        <i data-lucide="award"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>LeetCode Accomplishment</h3>
+                        <p>Solved 250+ Data Structures & Algorithms problems, demonstrating strong algorithmic foundations and analytical problem-solving skills.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Get in Touch</span>
+                    <h2 class="section-title">Let's Connect</h2>
+                </div>
+                
+                <div class="contact-layout">
+                    <!-- Left Side Details -->
+                    <div class="contact-info">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 12px;">Contact Information</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 24px;">
+                            Have an interesting project, job opportunity, or just want to chat about web architecture and databases? Feel free to reach out!
+                        </p>
+                        
+                        <div class="contact-details-list">
+                            <!-- Location -->
+                            <div class="contact-detail-item" id="contact-info-location">
+                                <div class="contact-detail-icon">
+                                    <i data-lucide="map-pin"></i>
+                                </div>
+                                <div class="contact-detail-text">
+                                    <span class="contact-detail-label">Location</span>
+                                    <span class="contact-detail-value">Indore, India</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="contact-detail-item" id="contact-info-email">
+                                <div class="contact-detail-icon">
+                                    <i data-lucide="mail"></i>
+                                </div>
+                                <div class="contact-detail-text">
+                                    <span class="contact-detail-label">Email</span>
+                                    <a href="mailto:vshekawat136@gmail.com" class="contact-detail-value">vshekawat136@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Phone -->
+                            <div class="contact-detail-item" id="contact-info-phone">
+                                <div class="contact-detail-icon">
+                                    <i data-lucide="phone"></i>
+                                </div>
+                                <div class="contact-detail-text">
+                                    <span class="contact-detail-label">Phone</span>
+                                    <a href="tel:+917806046570" class="contact-detail-value">+91 7806046570</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side Form -->
+                    <div class="glass-card" id="contact-form-container">
+                        <form class="contact-form" id="portfolio-contact-form">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" placeholder="Hi Vivek, I'd love to connect..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="justify-content: center; margin-top: 10px;" id="btn-submit-form">
+                                Send Message
+                                <i data-lucide="send" style="width: 18px; height: 18px;"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links" style="margin-top: 0; margin-bottom: 8px;">
+                <a href="https://github.com/vivek2221" target="_blank" rel="noopener noreferrer" class="social-icon" style="width:36px;height:36px;" id="footer-github" title="GitHub">
+                    <svg viewBox="0 0 24 24" width="16" height="16" style="width:16px;height:16px;" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/vivek-shekhawat-446762245/" target="_blank" rel="noopener noreferrer" class="social-icon" style="width:36px;height:36px;" id="footer-linkedin" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" width="16" height="16" style="width:16px;height:16px;" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+            </div>
+            <p class="footer-text">
+                &copy; 2026 Vivek Shekhawat. All rights reserved. | Ported to <a href="http://www.vivekss.in" target="_blank" rel="noopener noreferrer">vivekss.in</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- GSAP for Animations (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
